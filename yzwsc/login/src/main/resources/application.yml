@@ -1,0 +1,21 @@
+#数据源配置
+spring:
+  #数据源配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: 948293064
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+#MyBaris配置
+mybatis:
+  #实体类路径
+  type-aliases-package: classpath:cn/test/boot/pojo
+  #Mapper文件路径
+  mapper-locations: classpath:cn/test/boot/dao/*.xml
+
+#服务器配置
+server:
+  #端口配置
+  port:8080

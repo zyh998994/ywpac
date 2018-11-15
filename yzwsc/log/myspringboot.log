@@ -1,0 +1,63 @@
+2018-11-15 17:36:18.315 DEBUG 16740 --- [background-preinit] .h.v.m.ResourceBundleMessageInterpolator : Loaded expression factory via original TCCL
+2018-11-15 17:36:18.398  INFO 16740 --- [main] com.wzzm.cart.CartApplication            : Starting CartApplication on DESKTOP-M5QQUUF with PID 16740 (D:\IDEAWorkSpaces\yzwscyar\yzwsc\cart\target\classes started by 郑益豪 in D:\IDEAWorkSpaces\yzwscyar\yzwsc)
+2018-11-15 17:36:18.399  INFO 16740 --- [main] com.wzzm.cart.CartApplication            : The following profiles are active: dev
+2018-11-15 17:36:19.328  INFO 16740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-11-15 17:36:19.329  INFO 16740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-11-15 17:36:19.353  INFO 16740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16ms. Found 0 repository interfaces.
+2018-11-15 17:36:19.364  INFO 16740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-11-15 17:36:19.365  INFO 16740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-11-15 17:36:19.378  INFO 16740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3ms. Found 0 repository interfaces.
+2018-11-15 17:36:19.718  INFO 16740 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$6a226635] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-15 17:36:20.020  INFO 16740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-11-15 17:36:20.034  INFO 16740 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-15 17:36:20.034  INFO 16740 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-15 17:36:20.039  INFO 16740 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_181\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Git\cmd;D:\maven\apache-maven-3.5.4\bin;D:\svn\bin;C:\Program Files\VisualSVN Server\bin;C:\Users\郑益豪\AppData\Local\Microsoft\WindowsApps;C:\Users\郑益豪\AppData\Local\GitHubDesktop\bin;.]
+2018-11-15 17:36:20.184  INFO 16740 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-15 17:36:20.185  INFO 16740 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1748 ms
+2018-11-15 17:36:20.214  INFO 16740 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-15 17:36:20.218  INFO 16740 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-15 17:36:20.218  INFO 16740 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-15 17:36:20.218  INFO 16740 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-15 17:36:20.218  INFO 16740 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-15 17:36:20.362  INFO 16740 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-11-15 17:36:20.751  INFO 16740 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-11-15 17:36:21.558  INFO 16740 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-11-15 17:36:21.932  WARN 16740 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-11-15 17:36:22.034  INFO 16740 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2018-11-15 17:36:22.159  INFO 16740 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-15 17:36:22.450  INFO 16740 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-11-15 17:36:22.463  INFO 16740 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-11-15 17:36:22.491  INFO 16740 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-11-15 17:36:22.646  INFO 16740 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-11-15 17:36:22.648  INFO 16740 --- [main] com.wzzm.cart.CartApplication            : Started CartApplication in 4.821 seconds (JVM running for 6.124)
+2018-11-15 17:40:20.720  INFO 21364 --- [main] com.wzzm.cart.CartApplication            : Starting CartApplication on DESKTOP-M5QQUUF with PID 21364 (D:\IDEAWorkSpaces\yzwscyar\yzwsc\cart\target\classes started by 郑益豪 in D:\IDEAWorkSpaces\yzwscyar\yzwsc)
+2018-11-15 17:40:20.722  INFO 21364 --- [main] com.wzzm.cart.CartApplication            : The following profiles are active: dev
+2018-11-15 17:40:21.775  INFO 21364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-11-15 17:40:21.775  INFO 21364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-11-15 17:40:21.795  INFO 21364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 repository interfaces.
+2018-11-15 17:40:21.805  INFO 21364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-11-15 17:40:21.806  INFO 21364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-11-15 17:40:21.817  INFO 21364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3ms. Found 0 repository interfaces.
+2018-11-15 17:40:22.106  INFO 21364 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d23fbe45] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-15 17:40:22.420  INFO 21364 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-11-15 17:40:22.433  INFO 21364 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-15 17:40:22.433  INFO 21364 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-15 17:40:22.439  INFO 21364 --- [main] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_181\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;D:\Git\cmd;D:\maven\apache-maven-3.5.4\bin;D:\svn\bin;C:\Program Files\VisualSVN Server\bin;C:\Users\郑益豪\AppData\Local\Microsoft\WindowsApps;C:\Users\郑益豪\AppData\Local\GitHubDesktop\bin;.]
+2018-11-15 17:40:22.588  INFO 21364 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-15 17:40:22.589  INFO 21364 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1791 ms
+2018-11-15 17:40:22.617  INFO 21364 --- [main] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-15 17:40:22.622  INFO 21364 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-15 17:40:22.622  INFO 21364 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-15 17:40:22.622  INFO 21364 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-15 17:40:22.622  INFO 21364 --- [main] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-15 17:40:22.794  INFO 21364 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-11-15 17:40:23.315  INFO 21364 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-11-15 17:40:23.849  INFO 21364 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-11-15 17:40:24.228  WARN 21364 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-11-15 17:40:24.331  INFO 21364 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2018-11-15 17:40:24.455  INFO 21364 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-15 17:40:24.736  INFO 21364 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-11-15 17:40:24.749  INFO 21364 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2018-11-15 17:40:24.778  INFO 21364 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-11-15 17:40:24.936  INFO 21364 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-11-15 17:40:24.938  INFO 21364 --- [main] com.wzzm.cart.CartApplication            : Started CartApplication in 4.721 seconds (JVM running for 6.029)

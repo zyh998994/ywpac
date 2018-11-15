@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzzm.order.dao">
+    <select id="com.wzzm.order.dao.OrderFormDao.selall" resultType="com.wzzm.order.pojo.OrderForm">
+        select uid,goodid,onum from orderform
+    </select>
+    <select id="com.wzzm.order.dao.OrderFormDao.selall1" resultType="com.wzzm.order.pojo.GoodsForm" parameterType="com.wzzm.order.pojo.GoodsForm">
+        select gname,gprice,gimage,sid,specs1 from goodsform where gid=#{gid}
+    </select>
+    <select id="com.wzzm.order.dao.OrderFormDao.selobii" resultType="com.wzzm.order.pojo.OrderForm" parameterType="com.wzzm.order.pojo.OrderForm">
+        select uid,goodid,onum from orderform where state=#{state}
+    </select>
+    <select id="com.wzzm.order.dao.OrderFormDao.selobi" resultType="com.wzzm.order.pojo.GoodsForm" parameterType="com.wzzm.order.pojo.GoodsForm">
+        select gname,gprice,gimage,sid,specs1 from goodsform
+    </select>
+</mapper>

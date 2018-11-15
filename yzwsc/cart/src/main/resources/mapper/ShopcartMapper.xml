@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wzzm.cart.dao">
+
+    <select id="com.wzzm.cart.dao.ShopcartDao.seleinfo" resultType="com.wzzm.cart.pojo.GoodsForm" parameterType="com.wzzm.cart.pojo.GoodsForm">
+        select gid,gname,gprice,ginfo,sid,gstate,tid,specs1,specs2,specs3,specs4,ext1 from goodsform
+        <trim prefix="where" prefixOverrides="and | or">
+            <if test="specs1 != null and specs1 != ''">
+                and specs1=#{specs1}
+            </if>
+            <if test="specs2 != null and specs2 != ''">
+                and specs2=#{specs2}
+            </if>
+            <if test="specs3 != null and specs3 != ''">
+                and specs3=#{specs3}
+            </if>
+            <if test="specs4 != null and specs4 != ''">
+                and specs4=#{specs4}
+            </if>
+            <if test="gid != null and gid != ''">
+                and gid=#{gid}
+            </if>
+        </trim>
+    </select>
+
+    <insert id="com.wzzm.cart.dao.ShopcartDao.inserjudge" parameterType="com.wzzm.cart.pojo.Shopcart">
+        insert into shopcart values (#{shopid},#{goodid},#{uuid},#{shopnum})
+    </insert>
+
+    <select id="com.wzzm.cart.dao.ShopcartDao.seleShop" resultType="com.wzzm.cart.pojo.Shopcart" parameterType="com.wzzm.cart.pojo.Shopcart">
+      select shopid,goodid,uuid,shopnum from shopcart where goodid=#{goodid} and uuid=#{uuid}
+    </select>
+
+    <update id="com.wzzm.cart.dao.ShopcartDao.updateorderinfo" parameterType="com.wzzm.cart.pojo.Shopcart">
+      update shopcart set shopnum=#{shopnum} where uuid=#{uuid} and goodid=#{goodid}
+    </update>
+
+    <resultMap id="a" type="com.wzzm.cart.pojo.Shopcart">
+        <result property="shopid" column="shopid"></result>
+        <result property="goodid" column="goodid"></result>
+        <result property="uuid" column="uuid"></result>
+        <result property="shopnum" column="shopnum"></result>
+        <association property="sf" javaType="com.wzzm.cart.pojo.StoreForm">
+            <result property="sname" column="sname"></result>
+        </association>
+        <association property="gf" javaType="com.wzzm.cart.pojo.GoodsForm">
+            <result property="gid" column="gid"></result>
+            <result property="gname" column="gname"></result>
+            <result property="gprice" column="gprice"></result>
+            <result property="gimage" column="gimage"></result>
+            <result property="specs1" column="specs1"></result>
+            <result property="specs2" column="specs2"></result>
+            <result property="specs3" column="specs3"></result>
+            <result property="specs4" column="specs4"></result>
+            <result property="sid" column="sid"></result>
+        </association>
+    </resultMap>
+
+    <select id="com.wzzm.cart.dao.ShopcartDao.selescilist" resultType="com.wzzm.cart.pojo.Shopcart" resultMap="a" parameterType="com.wzzm.cart.pojo.Shopcart">
+        select goodid,uuid,shopnum,gname,gprice,gimage,goodsform.sid,specs1,specs1,specs3,specs4,sname from shopcart left join (goodsform,storeform) ON (shopcart.goodid=goodsform.gid and goodsform.sid=storeform.sid) where shopcart.uuid = #{uuid}
+    </select>
+
+    <delete id="com.wzzm.cart.dao.ShopcartDao.deleshopcart" parameterType="com.wzzm.cart.pojo.Shopcart">
+        delete from shopcart where goodid=#{goodid} and uuid=#{uuid}
+    </delete>
+
+</mapper>
