@@ -2,20 +2,20 @@
 spring:
   #数据源配置
   datasource:
-    url: jdbc:mysql://39.105.43.204:3306/yzinterface
+    url: jdbc:mysql://yzinterface@39.105.43.204:3306/yzinterface
     username: yzinterface
     password: yzinterface
-    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 
 #MyBaris配置
 mybatis:
   #实体类路径
-  type-aliases-package: classpath:cn/test/boot/pojo
+  type-aliases-package: classpath:com/wzzm/show/cn/pojo
   #Mapper文件路径
-  mapper-locations: classpath:cn/test/boot/dao/*.xml
+  mapper-locations: classpath:mapper/*.xml
 
 #服务器配置
 server:
   #端口配置
-  port:8080
+  port: 8080

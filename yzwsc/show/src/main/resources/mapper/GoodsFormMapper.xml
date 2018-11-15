@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wzzm.show.cn.dao.GoodsFormDao">
+    <select id="com.wzzm.show.cn.dao.GoodsFormDao.selfuzzy" resultType="com.wzzm.show.cn.pojo.GoodsForm" parameterType="String">
+        select gname,gprice,ginfo,gimage,ginfoimage from goodsform where 1=1
+        <if test="gname != null">
+            and gname like concat(concat('%',#{gname}),'%')
+        </if>
+    </select>
+
+    <select id="com.wzzm.show.cn.dao.GoodsFormDao.selinfo" resultType="com.wzzm.show.cn.pojo.GoodsForm" parameterType="int">
+        select gname,gprice,gimage from goodsform where 1=1
+        <if test="tid != null">
+            and tid=#{tid}
+        </if>
+    </select>
+
+    <select id="com.wzzm.show.cn.dao.GoodsFormDao.selgoodsinfo" resultType="com.wzzm.show.cn.pojo.GoodsForm" parameterType="int">
+        select gname,gprice,ginfo,gimage,ginfoimage,gdate,sid from goodsform
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="gid != null">
+                and gid=#{gid}
+            </if>
+        </trim>
+    </select>
+</mapper>
