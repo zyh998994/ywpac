@@ -94,7 +94,7 @@ public class GoodsFormController {
    @ApiOperation(value = "根据商品ID查询商品所有信息并分页显示",notes = "根据商品ID查询商品所有信息并分页显示",produces = "application/json")
    @ApiResponses({@ApiResponse(code = 400,message = "Invalid user supplied")})
    @ResponseBody
-   public String selgoodsinfo(@ApiParam(name = "gid",value = "商品ID",required = true)@RequestParam Integer gid){
+    public String selgoodsinfo(@ApiParam(name = "gid",value = "商品ID",required = true)@RequestParam Integer gid){
        return gsfs.getPageByIndexInfo(1,3,gid);
    }
 }
