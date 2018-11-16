@@ -1,5 +1,7 @@
 package com.wzzm.show.cn.service;
 
+import com.wzzm.show.cn.pojo.ResultBean;
+
 public interface GoodsFormService {
     /**
      *根据商品名模糊查询商品信息
@@ -21,7 +23,7 @@ public interface GoodsFormService {
      * @param pagesize 每页显示条数
      * @return
      */
-    String getPageByIndexInfo(Integer index, Integer pagesize, Integer tid);
+    ResultBean<String> getPageByIndexInfo(Integer index, Integer pagesize, Integer tid);
 
     /**
      * 根据商品名模糊查询商品信息并分页显示
@@ -29,7 +31,7 @@ public interface GoodsFormService {
      * @param pagesize
      * @return
      */
-    String getPageByIndexFuzzy(Integer index, Integer pagesize, String gname);
+    ResultBean<String> getPageByIndexFuzzy(Integer index, Integer pagesize, String gname);
 
     /**
      * 根据商品ID查询商品所有信息并分页显示
@@ -37,5 +39,5 @@ public interface GoodsFormService {
      * @param pagesize
      * @return
      */
-    String getPageByIndexGoods(Integer index, Integer pagesize, Integer gid);
+    ResultBean<String> getPageByIndexGoods(Integer index, Integer pagesize, Integer gid);
 }

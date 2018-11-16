@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.wzzm.show.cn.dao.GoodsFormDao;
 import com.wzzm.show.cn.pojo.GoodsForm;
+import com.wzzm.show.cn.pojo.ResultBean;
 import com.wzzm.show.cn.service.GoodsFormService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -55,11 +56,19 @@ public class GoodsFormServiceImpl implements GoodsFormService {
      */
     @Transactional
     @Override
-    public String getPageByIndexInfo(Integer index, Integer pagesize, Integer tid) {
+    public ResultBean<String> getPageByIndexInfo(Integer index, Integer pagesize, Integer tid) {
+        ResultBean resultBean = new ResultBean();
+        if (tid == null){
+            return resultBean.nulls("tid");
+        }
         PageHelper.startPage(index,pagesize);
         List<GoodsForm> paginginfo = gsfd.selinfo(tid);
+        if (paginginfo.size() == 0){
+            return resultBean.error(null);
+        }
         PageInfo<GoodsForm> pages = new PageInfo<GoodsForm>(paginginfo);
-        return JSON.toJSONString(pages);
+        return resultBean.success(pages);
+        //return JSON.toJSONString(pages);
     }
 
     /**
@@ -70,20 +79,36 @@ public class GoodsFormServiceImpl implements GoodsFormService {
      */
     @Transactional
     @Override
-    public String getPageByIndexFuzzy(Integer index, Integer pagesize, String gname) {
+    public ResultBean<String> getPageByIndexFuzzy(Integer index, Integer pagesize, String gname) {
+        ResultBean resultBean = new ResultBean();
+        if (gname == null){
+            return resultBean.nulls("gname");
+        }
         PageHelper.startPage(index,pagesize);
         List<GoodsForm> pagingfuzzy = gsfd.selfuzzy(gname);
+        if (pagingfuzzy.size() == 0){
+            return resultBean.error(null);
+        }
         PageInfo<GoodsForm> page = new PageInfo<GoodsForm>(pagingfuzzy);
-        return JSON.toJSONString(page);
+        return resultBean.success(page);
+        //return JSON.toJSONString(page);
     }
 
     @Transactional
     @Override
-    public String getPageByIndexGoods(Integer index, Integer pagesize, Integer gid) {
+    public ResultBean<String> getPageByIndexGoods(Integer index, Integer pagesize, Integer gid) {
+        ResultBean resultBean = new ResultBean();
+        if (gid == null){
+            return resultBean.nulls("gid");
+        }
         PageHelper.startPage(index,pagesize);
         List<GoodsForm> paginggoods = gsfd.selgoodsinfo(gid);
+        if (paginggoods.size() == 0){
+            return resultBean.error(null);
+        }
         PageInfo<GoodsForm> paging = new PageInfo<GoodsForm>(paginggoods);
-        return JSON.toJSONString(paging);
+        return resultBean.success(paging);
+        //return JSON.toJSONString(paging);
     }
 
 
