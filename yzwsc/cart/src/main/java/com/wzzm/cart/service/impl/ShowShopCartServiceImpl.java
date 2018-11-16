@@ -36,17 +36,16 @@ public class ShowShopCartServiceImpl implements ShowShopCartService {
     }
 
     @Override
-    public String deleshopinfo(Shopcart sc) {
-         try {
-
-             if(scd.deleshopcart(sc) > 0){
-                 return "删除成功";
-             }else {
-                 return "删除失败";
-             }
-         }catch (Exception e){
-             return "参数错误";
-         }
+    public ResultBean<String> deleshopinfo(Shopcart sc) {
+        ResultBean resultBean = new ResultBean();
+        if(sc == null){
+            return resultBean.nulls("sc");
+        }
+        int dele = scd.deleshopcart(sc);
+        if(dele == 0){
+            return resultBean.error("添加失败");
+        }
+        return resultBean.success(dele);
     }
 
 

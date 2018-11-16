@@ -19,6 +19,8 @@ public interface ShopcartDao {
      */
     GoodsForm seleinfo(GoodsForm gf);
 
+
+
     /**
      * 新增商品到购物车
      * @param sc

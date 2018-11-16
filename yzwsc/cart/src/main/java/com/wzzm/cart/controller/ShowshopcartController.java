@@ -3,6 +3,7 @@ package com.wzzm.cart.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.wordnik.swagger.annotations.*;
+import com.wzzm.cart.pojo.ResultBean;
 import com.wzzm.cart.pojo.Shopcart;
 import com.wzzm.cart.service.ShowShopCartService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +59,13 @@ public class ShowshopcartController {
     @ResponseBody
     @RequestMapping(value = "deleshop",method = RequestMethod.DELETE)
     @ApiOperation(value = "按照id删除购物车商品", notes = "删除", response = String.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 404,message = "404:找不到合适的路径"),
+            @ApiResponse(code = 500, message = "500:通用报错（数据、逻辑、外键关联等、不区分错误类型）"),
+            @ApiResponse(code = 0, message = "没有找到合适的资源"),
+            @ApiResponse(code = -1, message = "-1:异常"),
+            @ApiResponse(code = 1, message = "1:正常运行"),
+    })
     @ApiImplicitParams({
             @ApiImplicitParam(paramType = "query",required = false,name="uuid",dataType = "int",value = "用户id"),
             @ApiImplicitParam(paramType = "query",required = false,name="goodid",dataType = "int",value = "商品id")
@@ -66,6 +74,6 @@ public class ShowshopcartController {
         Shopcart sc= new Shopcart();
         sc.setUuid(uuid);
         sc.setGoodid(goodid);
-        return showscs.deleshopinfo(sc);
+        return JSON.toJSONString(showscs.deleshopinfo(sc));
     }
 }

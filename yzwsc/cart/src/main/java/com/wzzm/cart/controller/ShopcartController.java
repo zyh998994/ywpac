@@ -1,6 +1,7 @@
 package com.wzzm.cart.controller;
 
 
+import com.alibaba.fastjson.JSON;
 import com.wordnik.swagger.annotations.Api;
 import com.wordnik.swagger.annotations.ApiImplicitParam;
 import com.wordnik.swagger.annotations.ApiImplicitParams;
@@ -58,7 +59,7 @@ public class ShopcartController {
         gf.setSpecs2(specs2);//型号2
         sc.setUuid(uuid);
         shopcart.seleinfo(gf);
-        return shopcart.judge(sc,gf,num);
+        return JSON.toJSONString(shopcart.judge(sc,gf,num));
     }
 
 
@@ -78,7 +79,7 @@ public class ShopcartController {
         Shopcart sc = new Shopcart();
         sc.setUuid(uuid);
         sc.setGoodid(goodid);
-        return shopcart.updaShopnum(sc,choose);
+        return JSON.toJSONString(shopcart.updaShopnum(sc,choose));
     }
 
     @RequestMapping(value = "/getinfofofo", method = RequestMethod.GET)

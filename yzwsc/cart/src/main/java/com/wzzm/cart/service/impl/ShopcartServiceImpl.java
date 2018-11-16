@@ -3,6 +3,7 @@ package com.wzzm.cart.service.impl;
 
 import com.wzzm.cart.dao.ShopcartDao;
 import com.wzzm.cart.pojo.GoodsForm;
+import com.wzzm.cart.pojo.ResultBean;
 import com.wzzm.cart.pojo.Shopcart;
 import com.wzzm.cart.service.ShopcartService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,58 +40,54 @@ public class ShopcartServiceImpl implements ShopcartService {
      * @return
      */
     @Override
-    public String inseinfo(GoodsForm goodf, int num, Shopcart sc) {
-       try {
+    public ResultBean<String> inseinfo(GoodsForm goodf, int num, Shopcart sc) {
+        ResultBean resultBean = new ResultBean();
+        System.out.println(seleinfo(goodf).getGid() + "--" + 123);
             sc.setShopid(0);
             if(seleinfo(goodf).getGstate() == 1){
                 sc.setGoodid(seleinfo(goodf).getGid());
             }else {
-                return "该商品已经下架";
+                return resultBean.nulls("132");
             }
             if(num < 1){
-                return "添加到购物车商品数量小于1";//添加到购物车商品数量小于1
+                return resultBean.nulls("添加到购物车商品数量小于1");//添加到购物车商品数量小于1
             }else if(num >= seleinfo(goodf).getExt1()){
-                return "添加到购物车商品数量大于库存";//添加到购物车商品数量大于库存
+                return resultBean.nulls("添加到购物车商品数量大于库存");//添加到购物车商品数量大于库存
             }else {
                 sc.setShopnum(num);
             }
             int judge = shop.inserjudge(sc);
-            if(judge > 0){
-                return "添加成功，请到购物车查看";
-            }else {
-                return "添加失败";
+            if(judge < 1){
+                return resultBean.error("添加失败");
             }
-       }catch (Exception e){
-            return "数据异常，空指针或者没有数据";
-       }
+            return resultBean.success(judge);
+
     }
 
     @Override
-    public String updaorderinfo(Shopcart sc, GoodsForm goodf, int num) {
+    public ResultBean<String> updaorderinfo(Shopcart sc, GoodsForm goodf, int num) {
+            ResultBean resultBean = new ResultBean();
 
-        try {
             sc.setShopid(seleinfo(goodf).getGid());
             if(num < 1){
-                return "添加到购物车商品数量小于1";
+                return resultBean.nulls("添加到购物车商品数量小于1");
             }else if(num > (seleinfo(goodf).getExt1() - shop.seleShop(sc).getShopid())){
-                return "添加到购物车商品数量大于库存";
+                return resultBean.nulls("添加到购物车商品数量小于1");
             }else {
                 sc.setShopnum(shop.seleShop(sc).getShopnum() + num);
             }
             int judge = shop.updateorderinfo(sc);
-            if(judge > 0){
-                return "添加成功";
-            }else {
-                return "添加失败";
+            if(judge < 1){
+                return resultBean.error("添加失败");
             }
-        }catch (Exception e){
-            return "空指针或数据异常";
-        }
+            return resultBean.success(judge);
 
     }
 
+
+
     @Override
-    public Object judge(Shopcart sc, GoodsForm goodf, int num) {
+    public Object judge(Shopcart sc, GoodsForm goodf, Integer num) {
         System.out.println(123);
         System.out.println(seleinfo(goodf).getGid());
         sc.setGoodid(seleinfo(goodf).getGid());
@@ -102,9 +99,9 @@ public class ShopcartServiceImpl implements ShopcartService {
     }
 
     @Override
-    public String updaShopnum(Shopcart sc, String choose) {
-        System.out.println(1);
-        try {
+    public ResultBean<String> updaShopnum(Shopcart sc, String choose) {
+        ResultBean resultBean = new ResultBean();
+
             GoodsForm gf = new GoodsForm();
             gf.setGid(sc.getGoodid());
 
@@ -131,14 +128,12 @@ public class ShopcartServiceImpl implements ShopcartService {
                     break;
             }
             int judge = shop.updateorderinfo(sc);
-            if(judge > 0){
-                return "修改成功";
+            if(judge < 1){
+                return resultBean.error("修改失败");
             }else {
-                return "修改失败";
+                return resultBean.success(judge);
             }
-        }catch (Exception e){
-            return "参数错误";
-        }
+
     }
 
 

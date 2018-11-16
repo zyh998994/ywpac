@@ -1,6 +1,7 @@
 package com.wzzm.cart.service;
 
 import com.wzzm.cart.pojo.GoodsForm;
+import com.wzzm.cart.pojo.ResultBean;
 import com.wzzm.cart.pojo.Shopcart;
 
 public interface ShopcartService {
@@ -18,14 +19,14 @@ public interface ShopcartService {
      * @return
      */
 
-    String inseinfo(GoodsForm goodf, int num, Shopcart sc);
+    ResultBean<String> inseinfo(GoodsForm goodf, int num, Shopcart sc);
 
     /**
      * 修改数量
      * @param sc
      * @return
      */
-    String updaorderinfo(Shopcart sc, GoodsForm goodf, int num);
+    ResultBean<String> updaorderinfo(Shopcart sc, GoodsForm goodf, int num);
 
     /**
      * 判断用户要添加到购物车的东西
@@ -34,7 +35,7 @@ public interface ShopcartService {
      * @param num
      * @return
      */
-    Object judge(Shopcart sc, GoodsForm goodf, int num);
+    Object judge(Shopcart sc, GoodsForm goodf, Integer num);
 
     /**
      * 增加或减少数量购物车里的数量
@@ -42,5 +43,5 @@ public interface ShopcartService {
      * @param choose
      * @return
      */
-    String updaShopnum(Shopcart sc, String choose);
+    ResultBean<String> updaShopnum(Shopcart sc, String choose);
 }

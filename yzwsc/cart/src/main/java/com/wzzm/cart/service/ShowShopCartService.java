@@ -18,7 +18,7 @@ public interface ShowShopCartService {
      * @param sc
      * @return
      */
-    String deleshopinfo(Shopcart sc);
+    ResultBean<String> deleshopinfo(Shopcart sc);
 
 
 
