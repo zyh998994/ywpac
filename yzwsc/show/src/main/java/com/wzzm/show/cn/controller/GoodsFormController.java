@@ -1,5 +1,6 @@
 package com.wzzm.show.cn.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.wordnik.swagger.annotations.*;
 import com.wzzm.show.cn.service.GoodsFormService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +54,7 @@ public class GoodsFormController {
    @ApiResponses({@ApiResponse(code = 400,message = "Invalid user supplied")})
    @ResponseBody
    public String selfuzzy(@ApiParam(name = "gname",value = "商品名",required = true)@RequestParam String gname){
-       return gsfs.getPageByIndexFuzzy(1,5,gname);
+       return JSON.toJSONString(gsfs.getPageByIndexFuzzy(1,5,gname));
    }
    /*public String getsel(String gname, Model model){
        System.out.println(gname + "1111111111111");
@@ -77,7 +78,7 @@ public class GoodsFormController {
     @ApiResponses({@ApiResponse(code = 400,message = "Invalid user supplied")})
     @ResponseBody
     public String selinfo(@ApiParam(name = "tid",value = "商品类型ID",required = true)@RequestParam Integer tid){
-        return gsfs.getPageByIndexInfo(1,5,tid);
+        return JSON.toJSONString(gsfs.getPageByIndexInfo(1,5,tid));
     }
    /* public String selinfo(Integer tid, Model model){
        List<GoodsForm> goodshow = gsfs.selinfo(tid);
@@ -95,6 +96,6 @@ public class GoodsFormController {
    @ApiResponses({@ApiResponse(code = 400,message = "Invalid user supplied")})
    @ResponseBody
     public String selgoodsinfo(@ApiParam(name = "gid",value = "商品ID",required = true)@RequestParam Integer gid){
-       return gsfs.getPageByIndexInfo(1,3,gid);
+       return JSON.toJSONString(gsfs.getPageByIndexInfo(1,3,gid));
    }
 }
