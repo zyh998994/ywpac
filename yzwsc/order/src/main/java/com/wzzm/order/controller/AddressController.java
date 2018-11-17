@@ -1,5 +1,6 @@
 package com.wzzm.order.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.wordnik.swagger.annotations.*;
 import com.wzzm.order.pojo.AddressForm;
 import com.wzzm.order.service.AddressService1;
@@ -38,7 +39,7 @@ public class AddressController {
     @ApiOperation(value = "显示默认地址" , notes = "显示默认地址" , produces = "application/jsons")
     @ApiResponses({@ApiResponse(code = 400,message = "inasfdqc")})
     public String selsite(@ApiParam(name="ad" , value = "用户ID" ,required = true) AddressForm ad){
-        return add.seladd(ad);
+        return JSON.toJSONString(add.seladd(ad));
     }
     /**
      * 添加地址
@@ -50,7 +51,7 @@ public class AddressController {
     @ApiResponses({@ApiResponse(code = 400,message = "ina")})
     public String site(@ApiParam(name="ad" , value = "用户ID" ,required = true)@RequestBody AddressForm arf){
 
-        return add.address(arf);
+        return JSON.toJSONString(add.address(arf));
     }
 
     /**
@@ -63,7 +64,7 @@ public class AddressController {
     @ApiResponses({@ApiResponse(code = 400,message = "ina")})
     public String showsite(@ApiParam(name="arf" , value = "用户ID" ,required = true) AddressForm arf){
         arf.setUuid(1);
-        return add.selall(arf);
+        return JSON.toJSONString(add.selall(arf));
     }
     /**
      * 删除地址
@@ -77,6 +78,6 @@ public class AddressController {
         arf.setUuid(1);
         arf.setOid(1);
 
-        return add.delsite(arf);
+        return JSON.toJSONString(add.delsite(arf));
     }
 }

@@ -3,6 +3,7 @@ package com.wzzm.order.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.wzzm.order.dao.AddressFormDao;
 import com.wzzm.order.pojo.AddressForm;
+import com.wzzm.order.pojo.ResultBean;
 import com.wzzm.order.service.AddressService1;
 import org.springframework.stereotype.Service;
 
@@ -23,12 +24,17 @@ public class AddressServiceimpl implements AddressService1 {
     }
 
     @Override
-    public String seladd(AddressForm ad) {
+    public ResultBean<String> seladd(AddressForm ad) {
+        ResultBean resultBean = new ResultBean();
+        if(ad==null){return resultBean.nulls("ad");}
         AddressForm seladd = arf.seladd(ad);
+
         if(seladd != null) {
-            return JSON.toJSONString(seladd);
+           // return JSON.toJSONString(seladd);
+            return resultBean.success(seladd);
         }else{
-            return "请填写收货地址";
+            return resultBean.error("请填写地址");
+
         }
     }
 
@@ -38,10 +44,16 @@ public class AddressServiceimpl implements AddressService1 {
      * @return
      */
     @Override
-    public String selall(AddressForm ada) {
+    public ResultBean<String> selall(AddressForm ada) {
+        ResultBean resultBean = new ResultBean();
+        if(ada==null){return resultBean.nulls("ada");}
         List<AddressForm> selall = arf.selall(ada);
-
-        return JSON.toJSONString(selall);
+        if(selall.size() == 0) {
+           /// return JSON.toJSONString(selall);
+            return resultBean.error(null);
+        }else {
+            return resultBean.success(selall);
+        }
     }
 
     /**
@@ -51,34 +63,39 @@ public class AddressServiceimpl implements AddressService1 {
      */
     @Override
     public int selsite(AddressForm ad) {
+
         return arf.selsite(ad);
     }
 
     @Override
-    public String delsite(AddressForm ad) {
+    public ResultBean<String> delsite(AddressForm ad) {
+        ResultBean resultBean = new ResultBean();
+        if(ad==null){return resultBean.nulls("ad");}
         int delsite = arf.delsite(ad);
         if(delsite>0) {
-            return "删除成功";
+            return resultBean.success("删除成功");
         }else{
-            return "删除失败";
+            return resultBean.success("删除失败");
         }
     }
 
     @Override
-    public String address(AddressForm arf) {
+    public ResultBean<String> address(AddressForm arf) {
+        ResultBean resultBean = new ResultBean();
+        if(arf==null){return resultBean.nulls("arf");}
         if(selsite(arf)<=3){
             String address = arf.getAddress();
             String phone = arf.getPhone();
             String postcode = arf.getPostcode();
             if(address.length()>50){
-                return "地址字数达到上限";
+                return resultBean.success("地址字数达到上限");
             }else if(phone.length() != 11 ){
-                return "手机号错误";
+                return resultBean.success("手机号错误");
             }else {
-                return "成功";
+                return resultBean.success("成功");
             }
         }else{
-            return "对不起，最大地址数为3，请先删除";
+            return resultBean.success("对不起，最大地址数为3，请先删除");
         }
 
 
